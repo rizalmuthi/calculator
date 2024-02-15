@@ -78,6 +78,6 @@ class Calculator
       )
     end
 
-    final_balance.round(2)
+    final_balance.round(0)
   end
 end
