@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'bigdecimal'
 
 class InvalidDepositError < StandardError; end
 class InvalidInterestRateError < StandardError; end
@@ -9,7 +10,7 @@ class Calculator
   INTEREST_PAID_TYPE = [:monthly, :quarterly, :annually, :at_maturity]
 
   def initialize(start_deposit:, interest_rate:, investment_term:, interest_paid_type:)
-    @start_deposit = start_deposit
+    @start_deposit = BigDecimal(start_deposit)
     @interest_rate = interest_rate
     @investment_term = investment_term
     @interest_paid_type = interest_paid_type
