@@ -22,6 +22,110 @@ describe Calculator do
       expect(calculator.run).to eq(10_330)
     end
 
+    context "when the interest_paid_type is monthly" do
+      let(:interest_paid_type) { :monthly }
+
+      context "and the interest_rate is 2.5%" do
+        context "with investment_term is 1" do
+          let(:interest_rate) { 2.5 }
+          let(:investment_term) { 1 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(10_253)
+          end
+        end
+      end
+
+      context "and the interest_rate is 5%" do
+        context "with investment_term is 5" do
+          let(:interest_rate) { 5 }
+          let(:investment_term) { 5 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(12_834)
+          end
+        end
+      end
+    end
+
+    context "when the interest_paid_type is quarterly" do
+      let(:interest_paid_type) { :quarterly }
+
+      context "and the interest_rate is 2.5%" do
+        context "with investment_term is 1" do
+          let(:interest_rate) { 2.5 }
+          let(:investment_term) { 1 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(10_252)
+          end
+        end
+      end
+
+      context "and the interest_rate is 5%" do
+        context "with investment_term is 5" do
+          let(:interest_rate) { 5 }
+          let(:investment_term) { 5 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(12_820)
+          end
+        end
+      end
+    end
+
+    context "when the interest_paid_type is annually" do
+      let(:interest_paid_type) { :annually }
+
+      context "and the interest_rate is 2.5%" do
+        context "with investment_term is 1" do
+          let(:interest_rate) { 2.5 }
+          let(:investment_term) { 1 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(10_250)
+          end
+        end
+      end
+
+      context "and the interest_rate is 5%" do
+        context "with investment_term is 5" do
+          let(:interest_rate) { 5 }
+          let(:investment_term) { 5 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(12_763)
+          end
+        end
+      end
+    end
+
+    context "when the interest_paid_type is at_maturity" do
+      let(:interest_paid_type) { :at_maturity }
+
+      context "and the interest_rate is 2.5%" do
+        context "with investment_term is 1" do
+          let(:interest_rate) { 2.5 }
+          let(:investment_term) { 1 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(10_250)
+          end
+        end
+      end
+
+      context "and the interest_rate is 5%" do
+        context "with investment_term is 5" do
+          let(:interest_rate) { 5 }
+          let(:investment_term) { 5 }
+
+          it "returns the same number as compared to the Bendigo Bank calculator" do
+            expect(calculator.run).to eq(12_500)
+          end
+        end
+      end
+    end
+
     context "when the input is invalid" do
       context "and start deposit is not positive number" do
         let(:start_deposit) { -100 }
